@@ -12,7 +12,7 @@ reset:
 
 
 run:
-	qemu-system-x86_64 -cdrom XenoOS.iso
+	qemu-system-x86_64 -cdrom XenoOS.iso -monitor stdio
 
 runfs:
 	qemu-system-x86_64 -cdrom XenoOS.iso -full-screen
