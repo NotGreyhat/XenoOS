@@ -1,0 +1,7 @@
+*.d
+*.iso
+kernel/limine
+*.o
+logfile.txt
+*.bin
+*.elf
