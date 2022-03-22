@@ -1,6 +1,6 @@
 #include <stdint.h>
 #include <stddef.h>
-#include "../stivale2.h"
+#include <util/stivale2.h>
 
 static uint8_t stack[4000];
 
