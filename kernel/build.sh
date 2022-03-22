@@ -1,3 +1,5 @@
+git clone https://github.com/limine-bootloader/limine.git --branch=v2.0-branch-binary --depth=1 limine
+
 cp -v kernel.elf limine.cfg limine/limine.sys \
       limine/limine-cd.bin limine/limine-eltorito-efi.bin XenoOS
 
