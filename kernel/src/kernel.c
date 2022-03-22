@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stddef.h>
 #include <util/stivale2.h>
+#include <util/string.h>
 
 static uint8_t stack[4000];
 
@@ -45,12 +46,23 @@ static struct stivale2_header_tag_framebuffer framebuffer_hdr_tag = {
 };
 
 
+
+
 __attribute__((section(".stivale2hdr"), used)) static struct stivale2_header stivale_hdr = {
     .entry_point = 0,
     .stack = (uintptr_t)stack,
      .flags = (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4),
      .tags = (uintptr_t)&framebuffer_hdr_tag
 };
+
+
+void(*kwrite_master)(const char* str, size_t length);
+
+
+void kwrite(const char* str) {
+    kwrite_master(str, strlen(str));
+}
+
 
 
 void _start(struct stivale2_struct* ss) {
@@ -61,7 +73,7 @@ void _start(struct stivale2_struct* ss) {
     }
 
     void* termwrite_master = (void*)term_tag->term_write;
-    void(*kwrite_master)(const char* str, size_t length) = termwrite_master;
+    kwrite_master = termwrite_master;
 
     while (1) {
         __asm__ __volatile__("hlt");
