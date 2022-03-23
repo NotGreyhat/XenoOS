@@ -1,5 +1,5 @@
-#ifndef EXCEPTIONS_H
-#define EXCEPTIONS_H
+#ifndef __XOS_EXCEPTIONS_H__
+#define __XOS_EXCEPTIONS_H__
 
 #include <interrupts/IDT.h>
 #include <drivers/video/Framebuffer.h>

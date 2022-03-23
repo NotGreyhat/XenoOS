@@ -1,5 +1,5 @@
-#ifndef IDT_H
-#define IDT_H
+#ifndef __XOS_IDT_H__
+#define __XOS_IDT_H__
 
 #define TRAP_GATE_FLAGS 0x8F
 #define INT_GATE_FLAGS 0x8E
